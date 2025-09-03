@@ -1,36 +1,52 @@
-import React from 'react';
-import { 
-  Github, Code2, Database, 
-  ServerCrash, Container, Cpu, Cloud, Terminal, 
-  Paintbrush, Layers 
-} from 'lucide-react';
+import React from "react";
+import {
+  Terminal,
+  Cpu,
+  Cloud,
+  ServerCrash,
+  Paintbrush,
+  Github,
+  Layers,
+  Database,
+  Code2,
+  Container,
+} from "lucide-react";
+
+const techStackRow1 = [
+  { name: "Python", icon: <Terminal size={16} className="mr-2" /> },
+  { name: "Pandas", icon: <Database size={16} className="mr-2" /> },
+  { name: "NumPy", icon: <Database size={16} className="mr-2" /> },
+  { name: "Scikit-learn", icon: <Cpu size={16} className="mr-2" /> },
+  { name: "TensorFlow", icon: <Cpu size={16} className="mr-2" /> },
+  { name: "Keras", icon: <Cpu size={16} className="mr-2" /> },
+  { name: "LangChain", icon: <Code2 size={16} className="mr-2" /> },
+  { name: "OpenAI", icon: <Cloud size={16} className="mr-2" /> },
+  { name: "Hugging Face", icon: <Github size={16} className="mr-2" /> },
+  { name: "Selenium", icon: <ServerCrash size={16} className="mr-2" /> },
+];
+
+const techStackRow2 = [
+  { name: "Streamlit", icon: <Layers size={16} className="mr-2" /> },
+  { name: "MLflow", icon: <Cpu size={16} className="mr-2" /> },
+  { name: "SQL", icon: <Database size={16} className="mr-2" /> },
+  { name: "Power BI", icon: <Paintbrush size={16} className="mr-2" /> },
+  { name: "Looker Studio", icon: <Paintbrush size={16} className="mr-2" /> },
+  { name: "AWS", icon: <Cloud size={16} className="mr-2" /> },
+  { name: "Agentic RAG", icon: <Container size={16} className="mr-2" /> },
+  { name: "LLMs", icon: <Code2 size={16} className="mr-2" /> },
+  { name: "n8n Automation", icon: <Code2 size={16} className="mr-2" /> },
+  { name: "Chatbot Dev", icon: <Code2 size={16} className="mr-2" /> },
+];
 
 const TechMarquee: React.FC = () => {
-  const techStackRow1 = [
-    { name: "React", icon: <Code2 className="w-5 h-5 mr-2" /> },
-    { name: "Next.js", icon: <Code2 className="w-5 h-5 mr-2" /> },
-    { name: "Node.js", icon: <ServerCrash className="w-5 h-5 mr-2" /> },
-    { name: "TailwindCSS", icon: <Paintbrush className="w-5 h-5 mr-2" /> },
-    { name: "PostgreSQL", icon: <Database className="w-5 h-5 mr-2" /> },
-    { name: "AWS", icon: <Cloud className="w-5 h-5 mr-2" /> },
-    { name: "Docker", icon: <Container className="w-5 h-5 mr-2" /> },
-    { name: "GraphQL", icon: <Cpu className="w-5 h-5 mr-2" /> }
-  ];
-  
-  const techStackRow2 = [
-    { name: "Java", icon: <Cpu className="w-5 h-5 mr-2" /> },
-    { name: "Python", icon: <Terminal className="w-5 h-5 mr-2" /> },
-    { name: "TypeScript", icon: <Code2 className="w-5 h-5 mr-2" /> },
-    { name: "MongoDB", icon: <Database className="w-5 h-5 mr-2" /> },
-    { name: "Redis", icon: <Database className="w-5 h-5 mr-2" /> },
-    { name: "Kubernetes", icon: <Layers className="w-5 h-5 mr-2" /> },
-    { name: "GitHub Actions", icon: <Github className="w-5 h-5 mr-2" /> }
-  ];
-
-  const renderMarqueeItems = (items: Array<{ name: string; icon: React.ReactNode }>) => {
-    // if a seamless continuous scroll isn't needed, no duplication needed.
+  const renderMarqueeItems = (
+    items: Array<{ name: string; icon: React.ReactNode }>
+  ) => {
     return items.map((tech, index) => (
-      <span key={index} className="tech-badge-premium mx-5 flex items-center">
+      <span
+        key={index}
+        className="tech-badge-premium mx-5 flex items-center text-white text-sm min-w-fit px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition"
+      >
         {tech.icon}
         {tech.name}
       </span>
@@ -39,16 +55,15 @@ const TechMarquee: React.FC = () => {
 
   return (
     <section className="py-20 bg-dark-100/30 relative max-w-screen-xl mx-auto px-10 overflow-hidden">
-      {/* Light effect for tech section */}
       <div className="absolute w-[400px] h-[400px] rounded-full bg-radial-glow-premium opacity-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
-      
+
       {/* Top row - scrolling right */}
-      <div className="relative overflow-hidden ">
+      <div className="relative overflow-hidden">
         <div className="animate-scroll-right flex whitespace-nowrap py-5">
           {renderMarqueeItems(techStackRow1)}
         </div>
       </div>
-      
+
       {/* Bottom row - scrolling left */}
       <div className="relative overflow-hidden mt-10">
         <div className="animate-scroll-left flex whitespace-nowrap py-5">
