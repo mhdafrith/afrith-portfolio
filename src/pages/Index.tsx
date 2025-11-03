@@ -6,6 +6,7 @@ import TechMarquee from '@/components/TechMarquee';
 import ProjectsSection from '@/components/ProjectsSection';
 import EducationTimeline from '@/components/EducationTimeline';
 import ContactSection from '@/components/ContactSection';
+import ProjectDemos from '@/components/ProjectDemos'; // ✅ added
 
 const Index: React.FC = () => {
   return (
@@ -22,7 +23,10 @@ const Index: React.FC = () => {
           <div className="absolute -top-[30vh] -left-[30vh] w-[80vh] h-[80vh] rounded-full bg-radial-glow-premium opacity-60 animate-glow-pulse"></div>
           
           {/* Secondary light source */}
-          <div className="absolute top-[70vh] -right-[20vh] w-[50vh] h-[50vh] rounded-full bg-radial-glow-premium opacity-40 animate-glow-pulse" style={{ animationDelay: '2s' }}></div>
+          <div
+            className="absolute top-[70vh] -right-[20vh] w-[50vh] h-[50vh] rounded-full bg-radial-glow-premium opacity-40 animate-glow-pulse"
+            style={{ animationDelay: '2s' }}
+          ></div>
           
           {/* Premium light rays */}
           <div className="light-ray-premium" style={{ top: '15vh', left: 0, width: '40vw', transform: 'rotate(30deg)', opacity: 0.2 }}></div>
@@ -66,7 +70,13 @@ const Index: React.FC = () => {
         <main className="pt-16 relative z-10">
           <HeroSection />
           <TechMarquee />
+          
+          {/* 🎥 Project Demo Videos Section (added before Featured Projects) */}
+          <ProjectDemos />
+
+          {/* Featured Projects Section */}
           <ProjectsSection />
+          
           <WorkExperience />
           <EducationTimeline />
           <ContactSection />
@@ -76,7 +86,7 @@ const Index: React.FC = () => {
         <footer className="py-12 px-4 border-t border-white/10 relative z-10">
           <div className="max-w-7xl mx-auto text-center">
             <p className="text-white/60">
-              © {new Date().getFullYear()} Mohamed Afith. All rights reserved.
+              © {new Date().getFullYear()} Mohamed Afrith. All rights reserved.
             </p>
           </div>
         </footer>
