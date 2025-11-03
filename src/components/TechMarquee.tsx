@@ -14,13 +14,13 @@ import {
 
 const techStackRow1 = [
   { name: "Python", icon: <Terminal size={16} className="mr-2" /> },
-  { name: "Pandas", icon: <Database size={16} className="mr-2" /> },
-  { name: "NumPy", icon: <Database size={16} className="mr-2" /> },
-  { name: "Scikit-learn", icon: <Cpu size={16} className="mr-2" /> },
-  { name: "TensorFlow", icon: <Cpu size={16} className="mr-2" /> },
-  { name: "Keras", icon: <Cpu size={16} className="mr-2" /> },
+  { name: "FastAPI", icon: <Database size={16} className="mr-2" /> },
+  { name: "Generative AI", icon: <Database size={16} className="mr-2" /> },
+  { name: "Agentic AI", icon: <Cpu size={16} className="mr-2" /> },
+  { name: "Vision Language Model", icon: <Cpu size={16} className="mr-2" /> },
+  { name: "Prompt Engineering", icon: <Cpu size={16} className="mr-2" /> },
   { name: "LangChain", icon: <Code2 size={16} className="mr-2" /> },
-  { name: "OpenAI", icon: <Cloud size={16} className="mr-2" /> },
+  { name: "Groq", icon: <Cloud size={16} className="mr-2" /> },
   { name: "Hugging Face", icon: <Github size={16} className="mr-2" /> },
   { name: "Selenium", icon: <ServerCrash size={16} className="mr-2" /> },
 ];
@@ -29,13 +29,13 @@ const techStackRow2 = [
   { name: "Streamlit", icon: <Layers size={16} className="mr-2" /> },
   { name: "MLflow", icon: <Cpu size={16} className="mr-2" /> },
   { name: "SQL", icon: <Database size={16} className="mr-2" /> },
-  { name: "Power BI", icon: <Paintbrush size={16} className="mr-2" /> },
+  { name: "NLP", icon: <Paintbrush size={16} className="mr-2" /> },
   { name: "Looker Studio", icon: <Paintbrush size={16} className="mr-2" /> },
   { name: "AWS", icon: <Cloud size={16} className="mr-2" /> },
   { name: "Agentic RAG", icon: <Container size={16} className="mr-2" /> },
   { name: "LLMs", icon: <Code2 size={16} className="mr-2" /> },
   { name: "n8n Automation", icon: <Code2 size={16} className="mr-2" /> },
-  { name: "Chatbot Dev", icon: <Code2 size={16} className="mr-2" /> },
+  { name: "OCR", icon: <Code2 size={16} className="mr-2" /> },
 ];
 
 const TechMarquee: React.FC = () => {

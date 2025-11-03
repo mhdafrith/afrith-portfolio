@@ -68,7 +68,7 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          25 | Data Science | Artificial Intelligence | Data Analyst
+          25 | Data Scientist | Artificial Intelligence Engineer | Gen AI Engineer
         </motion.p>
 
         {/* Contact */}

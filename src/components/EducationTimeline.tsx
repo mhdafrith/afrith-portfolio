@@ -11,24 +11,18 @@ interface Education {
 
 const EducationTimeline: React.FC = () => {
   const educationData: Education[] = [
+    
     {
       id: 1,
-      years: "Jul 2024 – Mar 2025",
-      degree: "Advanced Programming & Master Data Science",
-      institution: "IIT-M GUVI, Chennai",
-      grade: ""
-    },
-    {
-      id: 2,
       years: "2023 – 2025",
-      degree: "MBA in Healthcare & Hospital Management",
+      degree: "Master's in Data Science",
       institution: "SRM Institute of Science and Technology, Chennai",
       grade: ""
     },
     {
       id: 3,
       years: "2017 – 2023",
-      degree: "Bachelor of Optometry",
+      degree: "Bachelor of Science",
       institution: "Vasan Institute of Ophthalmology and Research, Chennai",
       grade: ""
     }

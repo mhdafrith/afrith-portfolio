@@ -15,8 +15,10 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* 🏠 Home Page (includes Project Demos + Featured Projects inside Index.tsx) */}
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* 🚫 404 Page */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
