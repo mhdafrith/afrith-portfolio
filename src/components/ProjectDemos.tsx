@@ -51,6 +51,10 @@ interface ProjectDemo {
 
 const projectDemos: ProjectDemo[] = [
   {
+    title: "My Pocket Friendly Personal Info AI",
+    videoUrl: "https://www.loom.com/embed/736aa650e20e458fb298ff28b9faf6e7", // Replace with your Loom embed URL
+  },
+  {
     title: "Universal Document Classifier & Extractor SOP",
     videoUrl: "https://www.loom.com/embed/67edd2870660465895dce4fde7726eb3", // Replace with your Loom embed URL
   },
@@ -58,6 +62,7 @@ const projectDemos: ProjectDemo[] = [
     title: "Universal Document Classifier & Extractor SOP Part-2",
     videoUrl: "https://www.loom.com/embed/5e8a541d0954405f9589c2ae2aedfb3b", // Replace with your Loom embed URL
   },
+  
 ];
 
 const ProjectDemoSection: React.FC = () => {

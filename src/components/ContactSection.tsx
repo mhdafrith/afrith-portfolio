@@ -1,33 +1,36 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Twitter, Linkedin } from 'lucide-react';
 import { toast } from 'sonner';
 
 const ContactSection: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xovpowrl", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        toast.success("✅ Message sent successfully!");
+        form.reset();
+      } else {
+        toast.error("❌ Failed to send message. Try again!");
+      }
+    } catch (error) {
+      toast.error("⚠️ Network error. Please try again later!");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -47,6 +50,7 @@ const ContactSection: React.FC = () => {
         </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,8 +67,6 @@ const ContactSection: React.FC = () => {
                   type="text"
                   name="name"
                   placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-100/60 border border-dark-200 rounded-md focus-glow transition-all focus:border-white/30"
                 />
@@ -76,8 +78,6 @@ const ContactSection: React.FC = () => {
                   type="email"
                   name="email"
                   placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-100/60 border border-dark-200 rounded-md focus-glow transition-all focus:border-white/30"
                 />
@@ -89,8 +89,6 @@ const ContactSection: React.FC = () => {
                   name="message"
                   placeholder="Your Message"
                   rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-100/60 border border-dark-200 rounded-md focus-glow transition-all focus:border-white/30 resize-none"
                 ></textarea>
@@ -107,6 +105,7 @@ const ContactSection: React.FC = () => {
             </form>
           </motion.div>
           
+          {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +114,6 @@ const ContactSection: React.FC = () => {
             className="self-center"
           >
             <div className="glow-card p-8 flex flex-col items-center relative overflow-hidden group">
-              {/* Inner highlight effect */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
               <div className="absolute -top-[150px] -right-[150px] w-[300px] h-[300px] bg-white/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
@@ -123,16 +121,12 @@ const ContactSection: React.FC = () => {
               
               <div className="flex space-x-6 mb-6">
                 <a 
-                  href="https://github.com/" 
+                  href="https://github.com/mhdafrith" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="p-3 border border-dark-200 rounded-full hover:border-white/40 transition-all hover:scale-110 group"
-                  style={{
-                    boxShadow: '0 0 10px rgba(255, 255, 255, 0.05)'
-                  }}
                 >
                   <Github className="w-5 h-5 group-hover:text-white transition-colors" />
-                  <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 blur-md -z-10 transition-opacity"></div>
                 </a>
                 
                 <a 
@@ -140,25 +134,17 @@ const ContactSection: React.FC = () => {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="p-3 border border-dark-200 rounded-full hover:border-white/40 transition-all hover:scale-110 group"
-                  style={{
-                    boxShadow: '0 0 10px rgba(255, 255, 255, 0.05)'
-                  }}
                 >
                   <Twitter className="w-5 h-5 group-hover:text-white transition-colors" />
-                  <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 blur-md -z-10 transition-opacity"></div>
                 </a>
                 
                 <a 
-                  href="https://linkedin.com/" 
+                  href="https://linkedin.com/in/mohamedafrith" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="p-3 border border-dark-200 rounded-full hover:border-white/40 transition-all hover:scale-110 group"
-                  style={{
-                    boxShadow: '0 0 10px rgba(255, 255, 255, 0.05)'
-                  }}
                 >
                   <Linkedin className="w-5 h-5 group-hover:text-white transition-colors" />
-                  <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 blur-md -z-10 transition-opacity"></div>
                 </a>
               </div>
               
@@ -166,10 +152,9 @@ const ContactSection: React.FC = () => {
                 <p className="text-white/70 mb-1">Or email me at:</p>
                 <a 
                   href="mailto:mafrith007@gmail.com" 
-                  className="text-white hover:underline hover:text-white/90 transition-colors relative group"
+                  className="text-white hover:underline hover:text-white/90 transition-colors"
                 >
                   mafrith007@gmail.com
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white/50 group-hover:w-full transition-all duration-300"></span>
                 </a>
               </div>
             </div>

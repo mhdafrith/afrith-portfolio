@@ -15,35 +15,45 @@ interface Project {
 const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
-      id: 1,
-      title: "Universal Document Classifier & Extractor",
-      description:
-        "LLM-powered intelligent document classifier and structured data extractor. Uses Donut (Vision Transformer), Llama Cloud Extractor, and custom parsing logic for multi-format document automation with 95%+ accuracy.",
-      techStack: [
-        "Streamlit",
-        "Llama Cloud",
-        "Donut",
-        "LLM",
-        "Pydantic",
-        "Document AI",
-      ],
-      url: "https://dp23zgah4gwrkjvgpho9pm.streamlit.app",
-      
-    },
+  id: 1,
+  title: "Universal Document Classifier & Extractor",
+  description:
+    "An AI-powered Streamlit web app that automatically identifies the type of any uploaded document (Invoice, Resume, Aadhaar, PAN, Bank Statement, etc.) and extracts key structured information instantly. Uses Llama Cloud’s Classify and Extract APIs with custom Pydantic schemas to deliver precise, schema-based data extraction for multi-format document automation.",
+  techStack: [
+    "Streamlit",
+    "Llama Cloud",
+    "AsyncLlamaCloud API",
+    "LLM-based Document Classification",
+    "Pydantic",
+    "Document Parsing",
+    "Python"
+  ],
+  url: "https://dp23zgah4gwrkjvgpho9pm.streamlit.app"
+}
+,
     {
-      id: 2,
-      title: "Predicting Depression with Deep Learning",
-      description:
-        "Binary classification model with 91% accuracy, deployed via Streamlit.",
-      techStack: ["TensorFlow", "Streamlit", "Keras"],
-      url: "https://drpvau5tc5o6dhruzza62m.streamlit.app/",
-    },
+  id: 2,
+  title: "Predicting Depression from Mental Health Survey using Deep Learning",
+  description:
+    "A deep learning–based Streamlit web app that predicts the likelihood of depression from mental health survey responses of students and working professionals. The model analyzes lifestyle, stress, sleep, job/academic satisfaction, and psychological factors to identify individuals at risk, achieving 91% accuracy using a custom PyTorch neural network.",
+  techStack: [
+    "PyTorch",
+    "Streamlit",
+    "Scikit-learn",
+    "NumPy",
+    "Deep Learning",
+    "Mental Health Analytics"
+  ],
+  url: "https://drpvau5tc5o6dhruzza62m.streamlit.app/"
+}
+,
     {
       id: 3,
-      title: "Personal Info Chatbot – Privacy Risk Detector",
-      description:
-        "Built a GenAI chatbot capable of detecting sensitive personal information like Aadhaar, PAN, phone number, or address in user text inputs. Designed to raise awareness about privacy leaks and responsible AI handling.",
-      techStack: ["Python", "Regex", "LangChain", "LLM", "Streamlit"],
+      title: "My Pocket Personal Info AI",
+description:
+  "Developed a RAG-based GenAI chatbot capable of retrieving and answering personalized queries such as Aadhaar number, PAN number, address, or academic scores by referencing uploaded personal documents like Aadhaar card, PAN card, and mark sheets. Designed to securely manage and retrieve personal data while demonstrating privacy-aware AI interaction.",
+techStack: ["Python", "LangChain", "FAISS", "LLM", "Streamlit","Groq API"],
+
       url: "https://github.com/mhdafrith/personal-info-chatbot",
     },
     {
